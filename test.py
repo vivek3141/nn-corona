@@ -23,7 +23,7 @@ i = 1
 
 while True:
     cv2.imshow("Corona", im2 if state else im1)
-    state, delta, done = env.step(net.activate(state))
+    state, delta, done = env.step(net.activate([state]))
     reward += delta
     print(f"Step {i}: Reward {reward} Done: {done}")
     i += 1 
