@@ -13,10 +13,10 @@ env = CoronaEnv()
 
 genome = pickle.load(open("winner.pkl", 'rb'))
 
-net = neat.nn.FeedForwardNetwork.create(genome, config)
 config = neat.Config(neat.DefaultGenome, neat.DefaultReproduction,
                          neat.DefaultSpeciesSet, neat.DefaultStagnation,
-                         config_file)
+                         "config")
+net = neat.nn.FeedForwardNetwork.create(genome, config)
 
 
 i = 1
