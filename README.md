@@ -32,7 +32,7 @@ Since we're living in 2020, and everything is about neural networks, we HAVE to 
 Lame, boring and not 2020-esque answer:
 
 ```python
-print(1)
+print(0)
 ```
 So, we can use genetic algorithms and neural networks to evolve a neural network with one input neuron, one output neuron and no hidden layers.
 
