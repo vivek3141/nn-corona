@@ -1,8 +1,11 @@
+import cv2
 import os
 import neat
 import pickle
 from env import CoronaEnv
-import cv2
+
+im1 = cv2.imread("home.png")
+im2 = cv2.imread("away.png")
 
 #os.chdir("checkpoints")
 
@@ -14,17 +17,18 @@ def get_fitness(genome, config):
     net = neat.nn.FeedForwardNetwork.create(genome, config)
 
     while not done:
+        cv2.imshow("Corona", im2 if state else im1)
         state, delta, done = env.step(net.activate([state]))
-        fitness += delta
+        reward += delta
 
-        if cv2.waitkey(1000) & 0xFF:
+        if cv2.waitKey(1000) & 0xFF == 27:
             exit()
 
-    return fitness
+    return reward
 
 def eval_genomes(genomes, config):
     for idx, genome in genomes:
-        i.fitness = get_fitness(genome, config)
+        genome.fitness = get_fitness(genome, config)
 
 config = neat.Config(neat.DefaultGenome, neat.DefaultReproduction,
                              neat.DefaultSpeciesSet, neat.DefaultStagnation,"config")
