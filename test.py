@@ -17,8 +17,6 @@ config = neat.Config(neat.DefaultGenome, neat.DefaultReproduction,
                          neat.DefaultSpeciesSet, neat.DefaultStagnation,
                          "config")
 net = neat.nn.FeedForwardNetwork.create(genome, config)
-
-
 i = 1
 
 while True:
